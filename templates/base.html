@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {% load static %}
+  <title>{% block title %}{% endblock title %}</title>
+  
+  <link rel="stylesheet" href="{% static 'quizshow.css' %}">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <link rel="stylesheet" href="{% static 'login.css' %}">
+  <link rel="stylesheet" href="{% static 'question.css' %}">
+  
+
+</head>
+
+<body>
+
+  {% block content %}  
+  
+  {% endblock content %}
+
+
+  {% block scripts %}
+  
+  
+  {% endblock scripts %}
+
+</body>
+</html>

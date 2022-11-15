@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    main page
+{% endblock title %}
+   
+{% load static %}
+<script type="text/javascript">
+  console.log("hello1");
+ alert("hello");
+  </script>
+ {% block content %}
+
+ {% include 'nav_stud.html' %}
+
+    <form action="/nav">
+    
+      <section>
+        <div class="main" style="background-color: black;">
+      
+        </div>
+        </section>
+    </form>
+ {% endblock content%}

@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'nav.css' %}">
+
+<nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+   <img src="{% static 'user.png' %}" height="80" width="80" style="margin-left: 80px; margin-top: 20px;">
+    <ul>
+      <a href="/quiz"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>Add Quiz</span>
+        </li></a>
+      <a href="/upload"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>Upload Csv</span>
+        </li></a>
+      <a href="/question"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>View Questions</span>
+        </li></a>
+      
+      <a href="/deletequiz"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>Delete Quiz</span>
+        </li></a>  
+      <a href="/logout"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>Log out</span>
+        </li></a>
+    </ul>
+  </nav>

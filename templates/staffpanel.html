@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% include 'home.html' %}
+
+{% load static %}
+
+
+{% block title %}
+    Login page
+{% endblock title %}
+
+ {% block content %}
+    {% if request.user.is_staff %}
+     <form action="/nav">
+      {% include 'nav.html' %}
+      <section>
+        <div class="main" style="color: black;">
+      
+        </div>
+        </section>
+    </form>
+    {% else %}
+    <p>you are not authorised</p>
+     {% endif %}
+
+     {% endblock content %}
+ 

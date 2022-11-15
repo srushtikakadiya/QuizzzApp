@@ -1,0 +1,29 @@
+
+.maincard {
+    min-width: 350px;
+    height: 4000px;
+    min-height: 5000px;
+}
+
+.quizes {
+    font-size:30px;
+    background: #00000080;
+    box-sizing: border-box; box-shadow: 0 10px 10px rgba(0,0,0,.6);
+    border-radius: 10px;
+    height: 150px; 
+    text-align: center; 
+    padding: 50px 50px 50px 50px;
+} 
+  
+  
+.grid {
+   
+    margin-left: 240px;
+    margin-right: 50px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    align-items: stretch;
+  
+    }

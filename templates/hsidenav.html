@@ -1,0 +1,53 @@
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'nav.css' %}" />
+
+
+  <nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <h2>Quizzo</h2>
+    <ul>
+      {% if user.is_authenticated %}
+      <a href="/studentpanel"
+      ><li tabindex="0" class="icon-dashboard">
+        <span>pannel</span>
+      </li></a
+    >
+
+
+      <a href="/logout"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>Log out</span>
+        </li></a
+      >
+      {% else %}
+
+    <a href="/"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>Home</span>
+        </li></a
+      >
+
+      <a href="/flog"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>faculty-login</span>
+        </li></a
+      >
+      <a href="/freg"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>faculty-register</span>
+        </li></a
+      >
+      <a href="/log"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>student-login</span>
+        </li></a
+      >
+      <a href="/reg"
+        ><li tabindex="0" class="icon-dashboard">
+          <span>student-register</span>
+        </li></a
+      >
+
+      {% endif %}
+    </ul>
+  </nav>

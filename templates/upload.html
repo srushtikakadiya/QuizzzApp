@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block title %} main page 
+{% endblock title %} 
+
+{% block content %}
+
+ {% if user.is_anonymous %} 
+    <a style="color: black" href="/log">login first</a>
+
+ {% else %} 
+ {% include 'nav.html' %}
+ <div class="login-box">
+  <h2>Upload CSV</h2>
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="upload-btn-wrapper">
+      <div class="btn">
+        Upload File
+        <input type="file" name="myfile" required="" />
+      </div>
+    </div>
+
+    <div class="user-box">
+      <select name="quizess" id="quizes">
+        {% for quiz in q %}
+        <option value="{{quiz.id}}">{{quiz}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit">
+      <span></span>
+      <span></span>
+      Upload
+    </button>
+  </form>
+</div>
+{% endif %}
+    <p>{{question}}</p>
+<br />
+<br />
+
+{% endblock content %}

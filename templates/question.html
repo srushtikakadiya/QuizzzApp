@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    main page
+{% endblock title %}
+   
+{% load static %}
+ {% block content %}
+
+ {% include 'nav.html' %}
+
+   
+<div class="view" >
+        <h2>View Question</h2>
+ <form method="POST">
+        {% csrf_token %}
+            <select name="quizess" id="quizes"> 
+             {% for q in quiz %}
+                <option value = "{{q.id}}" selected>{{q}}</option>
+        {% endfor %}
+            </select>
+          <br>
+          <br/>
+        <button type="submit"    class="ui button primary">confirm</button>
+    </form>
+
+    <br/>
+</div>
+<div class="disp" style="margin-left: 250px;">
+    <ol>
+
+    {% for question in questions %}
+    <h1 style="color: black; font-size: 20px;"><li style="list-style-position: inside; padding: 0px;"> {{question.question}}</li></h1>
+         <h3 style="color: black; font-size: 18px;">A. <input type="hidden" id="option1" name="option1"  value="{{question.optionA}}" >{{question.optionA}} </h3>
+       <h3 style="color: black; font-size: 18px;">B. <input type="hidden" id="oprion2" name="option2" value="{{question.optionB}}" >{{question.optionB}} </h3>
+     <h3 style="color: black; font-size: 18px;">C. <input type="hidden" id="option3" name="option3" value="{{question.optionC}}" >{{question.optionC}} </h3>
+         <h3 style="color: black; font-size: 18px;">D. <input type="hidden" id="option4" name="option4" value="{{question.optionD}}" >{{question.optionD}} </h3>
+        <h3 style="color: rgb(255, 255, 255);">Answer:&nbsp;&nbsp;&nbsp;{{question.correctAns}}</h3>
+        <a href="/updatequestion/{{question.id}}/"><button class="updatebtn" name="updatequesbtn" value="update">Update</button></a>
+        <br>
+        <br>
+        <br>
+        {% empty %}
+    <div>
+        <p>no question found </p>
+    </div>
+    {% endfor %}
+    </ol>
+    </br>
+    </br>
+
+</div>
+
+{% endblock content %}
+
+

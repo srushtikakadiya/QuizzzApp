@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+main page
+{% endblock title %}
+
+{% block content %}
+
+    {% include 'nav_stud.html' %}
+
+<div>
+    <h1 style="text-align: center; margin-top: 50px;" id="startdate_demo">
+        00 : 00
+    </h1>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+
+<div class="q-box" style="margin-left: 250px;">
+  
+    <div class="quizload" id = "quizloadd">
+        <input type="hidden" id="startdate" name="startdate" value="{{time_quiz}}"/>
+        <input type="hidden" class="ques_id" name="id" value="{{question.id}}">
+        <input type="hidden" class="number" name="number" value="{{number}}">
+        <input type="hidden" class="totalquestion" name="totalquestion" value="{{totalqs}}">
+
+        <h1 id="question" >
+        {{number}}.
+        {{question.question}}
+        </h1>
+        
+        <h1 >
+        <input type="radio" class="option" name="option" value="{{question.optionA}}" required> A. <span class="opt">{{question.optionA}}</span></br>
+        <input type="radio" class="option" name="option" value="{{question.optionB}}" required> B. <span class="opt">{{question.optionB}}</span></br>
+        <input type="radio" class="option" name="option" value="{{question.optionC}}" required> C. <span class="opt">{{question.optionC}}</span></br>
+        <input type="radio" class="option" name="option" value="{{question.optionD}}" required> D. <span class="opt">{{question.optionD}}</span></br>
+        
+    </h1>
+        <button style=" position: relative; background: none; padding: 10px 20px; color: #6c7d9b; font-size: 16px;  text-decoration: none; text-transform: uppercase; transition: .5s; margin-top: 15px; margin-left:310px; letter-spacing: 4px;color: #fff; border-radius: 5px;" class="ui button primary" id = "submit" class="ui button primary">Next</button>
+    
+    </div>
+    </br>
+    </br>
+    <input type="hidden" id="marks"/>
+</div>
+</form>
+{% endblock content %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{%  static 'js/question.js' %}"> </script>
+{% endblock scripts %}

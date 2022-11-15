@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    main page
+{% endblock title %}
+{% load static %}
+ {% block content %}
+
+<link rel="stylesheet" href="{% static 'quizshow.css' %}">
+
+ {% include 'nav_stud.html' %}
+
+ <form method="POST">
+     {% csrf_token %}
+    
+    <div class="login-box" style="width:500px; height:300px;">
+     
+    {% for quiz in quizes%}
+    
+    <input type="hidden" value="{{quiz.id}}"/><br>
+    <h2>Total number of questions:{{length}}</h2> 
+    <h2>This quiz is of subject:{{quiz.quiz_name}}</h2>
+    <h2>Total time for quiz is:{{length}} minute</h2></br>
+    <center><button type="submit" style=" position: relative; background: none; padding: 10px 20px; color: #6c7d9b; font-size: 16px;  text-decoration: none; text-transform: uppercase; transition: .5s; letter-spacing: 4px;color: #fff; border-radius: 5px;">start quiz</button></center>
+    
+    {% endfor %}
+
+    </div>
+  
+</form>
+
+
+{% endblock content %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{%  static 'js/question.js' %}"> </script>
+{% endblock scripts %}

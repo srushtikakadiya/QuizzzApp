@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    main page
+{% endblock title %}
+{% load static %}
+ {% block content %}
+
+<link rel="stylesheet" href="{% static 'quizshow.css' %}">
+
+ {% include 'nav.html' %}
+ <div class="login-box">
+ <form method="POST">
+    {% csrf_token %}
+
+{% for question in question %}
+    <div class="user-box">
+    <input type="text" name="question" value="{{question.question}}"/>
+    <label>Questions</label>
+   </div>
+
+   <div class="user-box">
+    <input type="text" id="option1" name="optionA"  value="{{question.optionA}}" /> 
+    <label>Option A</label>
+</div>
+
+    <div class="user-box">
+    <input type="text" id="oprion2" name="optionB" value="{{question.optionB}}" />
+    <label>Option B</label>
+</div>
+
+    <div class="user-box">
+    <input type="text" id="option3" name="optionC" value="{{question.optionC}}" />
+    <label>Option C</label>
+</div>
+
+    <div class="user-box">
+    <input type="text" id="option4" name="optionD" value="{{question.optionD}}" /> 
+    <label>Option D</label>
+</div>
+
+    <div class="user-box">
+    <input type="text"  name="ans" value="{{question.correctAns}}"/>
+    <label>CorrectAnswer</label>
+</div>
+
+{% endfor %}
+    <button type="submit" value="submit">submit</button>
+</div>
+
+</form>  
+</div>
+{% endblock content %}

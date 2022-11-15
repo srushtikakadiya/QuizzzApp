@@ -1,0 +1,22 @@
+
+.q-box {
+    position: absolute;
+    top: 50%;
+    left: 38%;
+    width: 800px;
+    min-height :300px;
+    padding: 30px 40px 1px 40px;
+    transform: translate(-50%, -50%);
+    background: #00000080;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .q-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  

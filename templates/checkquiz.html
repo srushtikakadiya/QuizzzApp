@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    main page
+{% endblock title %}
+{% load static %}
+ {% block content %}
+
+ <h1 style="text-align: center; margin-left: 200px;">Choose Quiz</h1>
+<link rel="stylesheet" href="{% static 'quizshow.css' %}">
+
+ {% include 'nav_stud.html' %}
+
+  <div class="grid">
+     
+    {% for quiz in quizes%}
+    
+    <a href="/viewquizplaceholder/{{quiz.id}}/" class="quizes" >{{quiz}}</a>
+          
+    {% endfor %}
+      
+</div>
+  
+
+{% endblock content %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{%  static 'js/question.js' %}"> </script>
+{% endblock scripts %}

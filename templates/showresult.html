@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} showresult {% endblock title %}
+<link rel="stylesheet" href="{% static 'quizshow.css' %}">
+
+{% block content %}
+<h1 style="text-align: center; margin-left: 200px;">Result</h1>
+{% include 'nav_stud.html' %}
+
+<div class="grid">
+    
+        {% for res in userresult %}
+            <h2 class="quizes">{{res.quiz_name}}   :   {{res.score}}</h2>
+        {% endfor %}
+    
+</div>
+{% endblock content %} 
+

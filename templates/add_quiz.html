@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block title %} add quiz {% endblock title %} {%load static %}
+<link rel="stylesheet" href="{% static 'nav.css' %}" />
+{% block content %} {% include 'nav.html' %} {% if user.is_anonymous %}
+
+<a style="color: black" href="/log">login first</a>
+{% else %}
+<div class="login-box" style="height:350px;">
+  <h2>Add Quiz</h2>
+
+  <form action="quiz" method="POST">
+    {% csrf_token %}
+    <div class="user-box">
+      <input type="text" id="quiz_name" name="quiz_name" required="" />
+      <label>Quiz Name</label>
+    </div>
+    <div class="user-box">
+      <input type="number" id="quiz_marks" name="quiz_marks" required="" />
+      <label>Quiz Marks</label>
+    </div>
+    <button type="submit">
+      <span></span>
+      <span></span>
+      <center>Confirm</center>
+    </button>
+    </br>
+    </br>
+  </form>
+  <div>
+   <center> <h2> {{message}} </h2> </center>
+    </div>
+</div>
+
+{% endif %} {% endblock content %}

@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'nav.css' %}">
+
+  <nav class="menu" tabindex="0">
+        <div class="smartphone-menu-trigger"></div>
+        <h2>Student</h2>
+        {% if user.is_authenticated %}
+        <ul>
+            <li tabindex="0" class="icon-dashboard">
+              <span>{{ user.username }}</span>
+            </li>
+          <a href="/choosequiz"
+            ><li tabindex="0" class="icon-dashboard">
+              <span>Choosequiz</span>
+            </li></a>
+          <a href="/displayresult">
+            <li tabindex="0" class="icon-dashboard">
+              <span>Result</span>
+            </li></a>
+          <a href="/logout"
+            ><li tabindex="0" class="icon-dashboard">
+              <span>Logout</span>
+            </li></a>
+        </ul>
+        {% else %}
+            <h2>Your are not authenticated first login <a href="/log">Login</a> </h2>
+        {% endif %}
+      </nav>
